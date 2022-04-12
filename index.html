@@ -33,10 +33,10 @@
                 alert("You win! Scissors beats paper.");
             } else if ((playerMove.toLowerCase() == "scissors") && (computerMove == 1)) {
                 alert("You lose. Rock beats scissors.");
-            } else if (playerMove.toLowerCase() !== "rock" || "paper" || "scissors") {
-                alert("You need to choose a valid move.");
-            } else {
+            } else if (((playerMove.toLowerCase() == "rock") && computerMove == 1) || ((playerMove.toLowerCase() == "paper") && computerMove == 2) || ((playerMove.toLowerCase() == "scissors") && computerMove == 3)) {
                 alert("It's a tie!");
+            } else {
+                alert("You need to choose a valid move.");
             }
         
         
