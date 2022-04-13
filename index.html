@@ -6,27 +6,46 @@
     </head>
     <body> 
         <script>
-
-            function computerPlay(min, max) {
-            return Math.floor(Math.random() * (max - min + 1) ) + min;
+            function computerSelection() {
+                function computerPlay(min, max) {
+                return Math.floor(Math.random() * (max - min + 1) ) + min;
     }
-            
-            let computerMove = computerPlay(1,3);
-            let computerRock = computerMove == 1;
-            let computerPaper = computerMove == 2;
-            let computerScissors = computerMove == 3;
+                let computerMove = computerPlay(1,3);
+                let computerRock = computerMove == 1;
+                let computerPaper = computerMove == 2;
+                let computerScissors = computerMove == 3;
+
+                if (computerScissors) {
+                    return computerSelection(computerScissors);
+                } else if (computerPaper) {
+                    return computerSelection(computerPaper);
+                } else {
+                    return computerSelection(computerRock);
+                }   
+                
             //  if (computerMove == 1) {
             //      console.log("The computer chose rock!");
             //      } else if (computerMove == 2) {
             //      console.log("The computer chose paper!");
             //      } else {
-            //      console.log("The computer chose scissors!");}
-            
-            
-            let playerMove = prompt("Rock, paper, or scissors?","");
-            let playerRock = playerMove.toLowerCase() == "rock";
-            let playerPaper = playerMove.toLowerCase() == "paper";
-            let playerScissors = playerMove.toLowerCase() == "scissors";
+            //      console.log("The computer chose scissors!");
+            function playerSelection() {
+                let playerMove = prompt("Rock, paper, or scissors?","");
+                let playerRock = playerMove.toLowerCase() == "rock";
+                let playerPaper = playerMove.toLowerCase() == "paper";
+                let playerScissors = playerMove.toLowerCase() == "scissors";
+
+                if (playerScissors) {
+                    return playerSelection(playerScissors);
+                } else if (playerPaper) {
+                    return playerSelection(playerPaper);
+                } else if (playerRock) {
+                    return playerSelection(playerRock);
+                } else {
+                    alert("You need to choose a valid move.");
+                }
+
+            }
 
             // if ((playerMove.toLowerCase() == "rock") && (computerMove == 3)) {
             //     alert("You win! Rock beats scissors.");
@@ -45,9 +64,7 @@
             // } else {
             //     alert("You need to choose a valid move.");
             // }
-        
-        
-           
+            }
         
         </script>
 
