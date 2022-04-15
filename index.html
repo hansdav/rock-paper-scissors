@@ -23,7 +23,7 @@
             function playerPlay() {
                 let playerMove = ""
                 let input = prompt("Choose rock, paper, or scissors!","");
-                if (input == "" || null) {
+                if (typeof input !== 'string') {
                     console.log("Please try again.");
                 } else if (input.toLowerCase() == "paper") {
                     playerMove = "paper";
