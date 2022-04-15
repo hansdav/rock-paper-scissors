@@ -24,7 +24,7 @@
                 let playerMove = ""
                 let input = prompt("Choose rock, paper, or scissors!","");
                 if (input == "" || null) {
-                    alert("Please try again.");
+                    console.log("Please try again.");
                 } else if (input.toLowerCase() == "paper") {
                     playerMove = "paper";
                 } else if (input.toLowerCase() == "scissors") {
@@ -32,7 +32,7 @@
                 } else if (input.toLowerCase() == "rock") {
                     playerMove = "rock";
                 } else {
-                    alert("Please enter a valid move.")
+                    console.log("Please enter a valid move.")
                 }
                 return playerMove;
             }
@@ -43,25 +43,25 @@
                 result = "";
 
                 if (computerSelection == playerSelection) {
-                    alert("It's a tie!");
+                    console.log("It's a tie!");
                     result = "draw";
                 } else if (playerSelection == "rock" && computerSelection == "scissors") {
-                    alert("You win! Rock beats scissors.");
+                    console.log("You win! Rock beats scissors.");
                     result = "playerWin";
                 } else if (playerSelection == "rock" && computerSelection == "paper") {
-                    alert("You lose. Paper beats rock.");
+                    console.log("You lose. Paper beats rock.");
                     result = "computerWin";
                 } else if (playerSelection == "paper" && computerSelection == "rock") {
-                    alert("You win! Paper beats rock.");
+                    console.log("You win! Paper beats rock.");
                     result = "playerWin";
                 } else if (playerSelection == "paper" && computerSelection == "scissors") {
-                    alert("You lose! Scissors beats paper.");
+                    console.log("You lose! Scissors beats paper.");
                     result = "computerWin";
                 } else if (playerSelection == "scissors" && computerSelection == "paper") {
-                    alert("You win! Scissors beats paper.");
+                    console.log("You win! Scissors beats paper.");
                     result = "playerWin";
                 } else if (playerSelection == "scissors" && computerSelection == "rock") {
-                    alert("You lose. Rock beats scissors.");
+                    console.log("You lose. Rock beats scissors.");
                     result = "computerWin";
                 }
                 return result;
@@ -71,14 +71,9 @@
             let playerPoints = 0;
             let computerPoints = 0;
             let round = "";
-            let computerTurn = "";
-            let playerTurn = "";
             let roundResult = "";
             for (let round = 0; round <5; round++) {
-                let computerTurn = computerPlay();
-                let playerTurn = playerPlay();
-                let roundResult = playRound(playerTurn, computerTurn);
-                playRound(playerPoints, computerPoints);
+                let roundResult = playRound();
 
                 if (roundResult == "playerWin") {
                     playerPoints += 1;
@@ -99,8 +94,8 @@
                 }
         }
 
-        game();
-        
+    game();
+
         </script>
 
     </body>
