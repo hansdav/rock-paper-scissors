@@ -6,22 +6,55 @@
     </head>
     <body> 
         <script>
-            function computerSelection() {
-                function computerPlay(min, max) {
-                return Math.floor(Math.random() * (max - min + 1) ) + min;
-    }
-                let computerMove = computerPlay(1,3);
-                let computerRock = computerMove == 1;
-                let computerPaper = computerMove == 2;
-                let computerScissors = computerMove == 3;
 
-                if (computerScissors) {
-                    return computerSelection(computerScissors);
-                } else if (computerPaper) {
-                    return computerSelection(computerPaper);
+            function computerPlay() {
+                let computerSelection = ""
+                let move = Math.floor(Math.random() * 3) + 1;
+                if (move === 1) {
+                    computerSelection = "rock";
+                } else if (move === 2) {
+                    computerSelection = "paper";
                 } else {
-                    return computerSelection(computerRock);
-                }   
+                    computerSelection = "scissors";
+                }
+                return computerSelection
+                
+            }
+            computerPlay();
+
+            function playerSelection() {
+                let playerMove
+                let input = prompt("Choose rock, paper, or scissors!","");
+                if (input.toLowerCase() == "rock") {
+                    playerMove = "rock";
+                } else if (input.toLowerCase() == "paper") {
+                    playerMove = "paper";
+                } else if (input.toLowerCase() == "scissors") {
+                    playerMove = "scissors";
+                } else if (input.toLowerCase() == "") {
+                    alert("Please try again.");
+                } else {
+                    alert("Please enter a valid move.")
+                }
+            }
+            playerSelection();
+          
+    //         function computerSelection() {
+    //             function computerPlay(min, max) {
+    //             return Math.floor(Math.random() * (max - min + 1) ) + min;
+    // }
+    //             let computerMove = computerPlay(1,3);
+    //             let computerRock = computerMove == 1;
+    //             let computerPaper = computerMove == 2;
+    //             let computerScissors = computerMove == 3;
+
+    //             if (computerScissors) {
+    //                 return computerSelection(computerScissors);
+    //             } else if (computerPaper) {
+    //                 return computerSelection(computerPaper);
+    //             } else {
+    //                 return computerSelection(computerRock);
+    //             }   
                 
             //  if (computerMove == 1) {
             //      console.log("The computer chose rock!");
@@ -29,23 +62,23 @@
             //      console.log("The computer chose paper!");
             //      } else {
             //      console.log("The computer chose scissors!");
-            function playerSelection() {
-                let playerMove = prompt("Rock, paper, or scissors?","");
-                let playerRock = playerMove.toLowerCase() == "rock";
-                let playerPaper = playerMove.toLowerCase() == "paper";
-                let playerScissors = playerMove.toLowerCase() == "scissors";
+            // function playerSelection() {
+            //     let playerMove = prompt("Rock, paper, or scissors?","");
+            //     let playerRock = playerMove.toLowerCase() == "rock";
+            //     let playerPaper = playerMove.toLowerCase() == "paper";
+            //     let playerScissors = playerMove.toLowerCase() == "scissors";
 
-                if (playerScissors) {
-                    return playerSelection(playerScissors);
-                } else if (playerPaper) {
-                    return playerSelection(playerPaper);
-                } else if (playerRock) {
-                    return playerSelection(playerRock);
-                } else {
-                    alert("You need to choose a valid move.");
-                }
+            //     if (playerScissors) {
+            //         return playerSelection(playerScissors);
+            //     } else if (playerPaper) {
+            //         return playerSelection(playerPaper);
+            //     } else if (playerRock) {
+            //         return playerSelection(playerRock);
+            //     } else {
+            //         alert("You need to choose a valid move.");
+            //     }
 
-            }
+            // }
 
             // if ((playerMove.toLowerCase() == "rock") && (computerMove == 3)) {
             //     alert("You win! Rock beats scissors.");
@@ -64,7 +97,7 @@
             // } else {
             //     alert("You need to choose a valid move.");
             // }
-            }
+            
         
         </script>
 
