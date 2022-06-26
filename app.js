@@ -4,9 +4,25 @@ const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
   button.addEventListener('click', function(e) {
     let playerSelection = e.target.textContent.toLowerCase();
-    console.log(playerSelection);
     let computerSelection = computerPlay();
     playRound(playerSelection, computerSelection);
+
+    let computerText = document.getElementById("computer");
+    const computerContent = document.createElement("div");
+    computerContent.textContent = computerSelection;
+    computerText.appendChild(computerContent);
+
+    let playerText = document.getElementById("player");
+    const playerContent = document.createElement("div");
+    playerContent.textContent = playerSelection;
+    playerText.appendChild(playerContent);
+
+    let resultText = document.getElementById("result");
+    const resultContent = document.createElement("div");
+    resultContent.textContent = result;
+    resultText.appendChild(resultContent);
+
+
   }
 );
 
@@ -22,7 +38,7 @@ function computerPlay() {
     }
     console.log(computer);
     return computer
-}
+};
 
 // took it out because it wasn't grokking with the button input//
 // function playerPlay() {
