@@ -3,100 +3,32 @@
     <meta charset="utf-8">
     <head>
         <title>Rock, Paper, Scissors!</title>
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body> 
-        <script>
-
-            function computerPlay() {
-                let computer = ""
-                let move = Math.floor(Math.random() * 3) + 1;
-                if (move === 1) {
-                    computer = "rock";
-                } else if (move === 2) {
-                    computer = "paper";
-                } else {
-                    computer = "scissors";
-                }
-                return computer
-            }
-
-            function playerPlay() {
-                let playerMove = ""
-                let input = prompt("Choose rock, paper, or scissors!","");
-                if (typeof input !== 'string') {
-                    console.log("Please try again.");
-                } else if (input.toLowerCase() == "paper") {
-                    playerMove = "paper";
-                } else if (input.toLowerCase() == "scissors") {
-                    playerMove = "scissors";
-                } else if (input.toLowerCase() == "rock") {
-                    playerMove = "rock";
-                } else {
-                    console.log("Please enter a valid move.")
-                }
-                return playerMove;
-            }
-
-            function playRound(playerSelection, computerSelection) {
-                computerSelection = computerPlay();
-                playerSelection = playerPlay();
-                result = "";
-
-                if (computerSelection == playerSelection) {
-                    console.log("It's a tie!");
-                    result = "draw";
-                } else if (playerSelection == "rock" && computerSelection == "scissors") {
-                    console.log("You win! Rock beats scissors.");
-                    result = "playerWin";
-                } else if (playerSelection == "rock" && computerSelection == "paper") {
-                    console.log("You lose. Paper beats rock.");
-                    result = "computerWin";
-                } else if (playerSelection == "paper" && computerSelection == "rock") {
-                    console.log("You win! Paper beats rock.");
-                    result = "playerWin";
-                } else if (playerSelection == "paper" && computerSelection == "scissors") {
-                    console.log("You lose! Scissors beats paper.");
-                    result = "computerWin";
-                } else if (playerSelection == "scissors" && computerSelection == "paper") {
-                    console.log("You win! Scissors beats paper.");
-                    result = "playerWin";
-                } else if (playerSelection == "scissors" && computerSelection == "rock") {
-                    console.log("You lose. Rock beats scissors.");
-                    result = "computerWin";
-                }
-                return result;
-            }
-
-        function game() {
-            let playerPoints = 0;
-            let computerPoints = 0;
-            let round = "";
-            let roundResult = "";
-            for (let round = 0; round <5; round++) {
-                let roundResult = playRound();
-
-                if (roundResult == "playerWin") {
-                    playerPoints += 1;
-                    console.log("You have " + playerPoints + " points and the computer has " + computerPoints + " points.");
-                } else if (roundResult == "computerWin") {
-                    computerPoints += 1;
-                    console.log("You have " + playerPoints + " points and the computer has " + computerPoints + " points.");
-                } else {
-                    round -= 1;
-                    console.log("You have " + playerPoints + " points and the computer has " + computerPoints + " points.");
-                }
-            }
-                
-                if (playerPoints > computerPoints) {
-                    alert("You won the game!!");
-                } else {
-                    alert("You lost the game. :(");
-                }
-        }
-
-    game();
-
-        </script>
-
+        <h1>CHOOSE YOUR MOVE!</h1>
+        <div class = "moves">
+            <button id="button" value="rock">ROCK</button>
+            <button id="button" value="paper">PAPER</button>
+            <button id="button" value="scissors">SCISSORS</button>
+        </div>
+        <div class = "info">
+            <div class="comp">
+                <h1>Computer Move</h1>
+                <div id="computer"></div>
+            </div>
+            <div class="player">
+                <h1>Your Move</h1>
+                <div id="player"></div>
+            </div>
+            <div class="result">
+                <h1>Results</h1>
+                <div id="result"></div>
+            </div>
+        </div>
+        <h2>SCORE</h2>
+        <div id = "playerPoints" value="0"></div>
+        <div id = "computerPoints" value="0"></div>
+        <script src="app.js"></script>
     </body>
 </html>
