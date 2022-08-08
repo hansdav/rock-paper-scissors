@@ -22,9 +22,22 @@ buttons.forEach((button) => {
     resultContent.textContent = result;
     resultText.appendChild(resultContent);
 
+    let playerPoints = document.getElementById("playerPoints");
+    let points = 0;
+    playerPoints.textContent = points;
 
-  }
-);
+    updateScore(points);
+  });
+
+function updateScore(points) {
+    if (result == "playerWin") {
+        points++;
+        console.log("You have " + points + " points and the computer has " + computerPoints + " points.");
+    }
+    // } else (result == "computerWin"); {
+    //     computerPoints += 1;
+    //     console.log("You have " + playerPoints + " points and the computer has " + computerPoints + " points.");
+  };
 
 function computerPlay() {
     let computer = ""
@@ -88,32 +101,30 @@ function playRound(playerSelection, computerSelection) {
     return result;
 };
 
-// // function game() {
-// // let playerPoints = 0;
-// // let computerPoints = 0;
-// // let round = "";
-// // let roundResult = "";
-// // for (let round = 0; round <5; round++) {
-// //     let roundResult = playRound();
+function game() {
+let playerPoints = 0;
+let computerPoints = 0;
+round = "";
+roundResult = "";
+for (let round = 0; round <5; round++) {
+    // let roundResult = playRound();
 
-// //     if (roundResult == "playerWin") {
-// //         playerPoints += 1;
-// //         console.log("You have " + playerPoints + " points and the computer has " + computerPoints + " points.");
-// //     } else if (roundResult == "computerWin") {
-// //         computerPoints += 1;
-// //         console.log("You have " + playerPoints + " points and the computer has " + computerPoints + " points.");
-// //     } else {
-// //         round -= 1;
-// //         console.log("You have " + playerPoints + " points and the computer has " + computerPoints + " points.");
-// //     }
-// // }
+    if (roundResult == "playerWin") {
+        playerPoints += "1";
+        console.log("You have " + playerPoints + " points and the computer has " + computerPoints + " points.");
+    } else if (roundResult == "computerWin") {
+        computerPoints += 1;
+        console.log("You have " + playerPoints + " points and the computer has " + computerPoints + " points.");
+    } else {
+        round -= 1;
+        console.log("You have " + playerPoints + " points and the computer has " + computerPoints + " points.");
+    }
+}
     
-// //     if (playerPoints > computerPoints) {
-// //         alert("You won the game!!");
-// //     } else {
-// //         alert("You lost the game. :(");
-// //     }
-// // }
-
-// // game();
+    if (playerPoints > computerPoints) {
+        alert("You won the game!!");
+    } else {
+        alert("You lost the game. :(");
+    }
+}
 })
